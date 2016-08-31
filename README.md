@@ -2,6 +2,7 @@
 This repository is AWS utils for vpac-innovations specialized.
 
 Here are the steps to add an AWS EC2 instance.
+
 1. Add IAM user policy (if doesn't exists)
     - AWS console > IAM > Users > "keys" user.
     - Permissions > Create Policy > Custom User Policy > Custom policy.
