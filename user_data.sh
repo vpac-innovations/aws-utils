@@ -1,10 +1,3 @@
-###
-### This script is used for user data when AWS instance is created
-### Need to be changed S3key, S3Secret, bucket and key file location
-### for your s3 and AMI user settings.
-### 
-### Author : forjin@vpac-innovations.com.au
-###
 #!/bin/bash
 
 cat << EOF > /etc/ssh/keys.sh
