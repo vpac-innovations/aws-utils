@@ -14,17 +14,17 @@ resource="/\${bucket}/\${public_key_file}"
 stringToSign="GET\n\n\${contentType}\n\${dateValue}\n\${resource}"
 signature=\`echo -en \${stringToSign} | openssl sha1 -hmac \${s3Secret} -binary | base64\`
 
-keys=$(curl \\
+keys=\$(curl \\
      -H "Host: \${bucket}.s3.amazonaws.com" \\
      -H "Date: \${dateValue}" \\
      -H "Content-Type: \${contentType}" \\
      -H "Authorization: AWS \${s3Key}:\${signature}" \\
      https://\${bucket}.s3.amazonaws.com/\${public_key_file})
 
-if echo "$keys" | grep -Eq '^ssh-rsa'; then
-        echo "$keys"
+if echo "\$keys" | grep -Eq '^ssh-rsa'; then
+        echo "\$keys"
 else
-        logger -p auth.warn -t "$0" -- "Failed to fetch keys from S3: $keys"
+        logger -p auth.warn -t "\$0" -- "Failed to fetch keys from S3: \$keys"
 fi
 
 EOF
