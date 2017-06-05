@@ -8,9 +8,7 @@ When creating a new EC2 instance:
 1. Cut and paste [`user_data.sh`](user_data.sh) into the _User Data_ text box.
 1. Set `s3Key` and `s3Secret` to an access key for the `keys` user. This user has access to a special bucket in s3.
 1. Set the name of `public_key_file` to match the project your machine will be used for.
-1. Configure the security group such that:
-    - There is no public SSH access. Instead, incoming connections should only be accepted from the private network (e.g. `172.31.0.0/16`). Connections will be made via the bastion server.
-    - NTP **incoming** and outgoing traffic is enabled - otherwise, S3 will refuse connections when the time drifts too much. UDP port 123.
+1. Configure the security group such that there is no public SSH access. Instead, incoming connections should only be accepted from the private network (e.g. `172.31.0.0/16`). Connections will be made via the bastion server.
 1. When you are asked for a key pair, choose any one with the intention of not using it. You could even create a new pair, download it and then delete it.
 1. Otherwise configure the machine as normal.
 
